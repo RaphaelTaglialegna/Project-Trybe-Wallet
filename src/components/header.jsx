@@ -14,7 +14,7 @@ class Header extends React.Component {
       return acc + moeda;
     }, 0)).toFixed(2);
     return (
-      <nav className="navbar navbar-light bg-light">
+      <header className="navbar navbar-light bg-light">
         <div className="navbar-brand d-flex flex-row" href="#">
           <img
             src={ linkTrybe }
@@ -40,7 +40,7 @@ class Header extends React.Component {
             BRL
           </div>
         </form>
-      </nav>
+      </header>
     );
   }
 }

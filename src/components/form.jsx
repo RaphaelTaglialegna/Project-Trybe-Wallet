@@ -52,6 +52,7 @@ class Form extends React.Component {
             className="custom-select mr-sm-2"
             id="currency"
             onChange={ this.handleChange }
+            data-testid="currency-input"
           >
             {Object.entries(currencies).map((item) => (
               item[0] !== 'USDT'
@@ -72,7 +73,7 @@ class Form extends React.Component {
             className="btn btn-primary"
             onClick={ () => this.saveExpensives() }
           >
-            Adicionar Despesa
+            Adicionar despesa
           </button>
         </div>
       </nav>

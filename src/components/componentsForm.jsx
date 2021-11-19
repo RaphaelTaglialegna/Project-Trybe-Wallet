@@ -7,13 +7,19 @@ class ComponentsForm extends React.Component {
     const { onChange } = this.props;
     return (
       < >
-        <label className={ classLabel } htmlFor="value" onChange={ onChange }>
+        <label className={ classLabel } htmlFor="value" dataTestId onChange={ onChange }>
           <h6>Valor:&nbsp;</h6>
-          <input type="number" className="form-control" id="value" />
+          <input
+            type="number"
+            data-testid="value-input"
+            className="form-control"
+            id="value"
+            value="0"
+          />
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>
           <h6>Método de pagamento:&nbsp;</h6>
-          <select className="custom-select mr-sm-2" id="method">
+          <select data-testid="method-input" className="custom-select mr-sm-2" id="method">
             <option> - </option>
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>
@@ -22,7 +28,7 @@ class ComponentsForm extends React.Component {
         </label>
         <label className={ classLabel } htmlFor="tag" onChange={ onChange }>
           <h6>Tag:&nbsp;</h6>
-          <select className="custom-select mr-sm-2" id="tag">
+          <select data-testid="tag-input" className="custom-select mr-sm-2" id="tag">
             <option> - </option>
             <option value="Alimentação">Alimentação</option>
             <option value="Lazer">Lazer</option>
@@ -38,6 +44,7 @@ class ComponentsForm extends React.Component {
             className="form-control"
             placeholder="Descrição"
             id="description"
+            data-testid="description-input"
           />
         </label>
       </>

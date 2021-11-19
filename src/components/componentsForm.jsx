@@ -19,7 +19,7 @@ class ComponentsForm extends React.Component {
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>
           <h6>Método de pagamento:&nbsp;</h6>
-          <select data-testid="method-input" className="custom-select mr-sm-2" id="method">
+          <select data-testid="method-input" className="custom-select mr-2" id="method">
             <option> - </option>
             <option value="Dinheiro">Dinheiro</option>
             <option value="Cartão de crédito">Cartão de crédito</option>

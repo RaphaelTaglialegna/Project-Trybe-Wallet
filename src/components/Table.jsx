@@ -1,14 +1,24 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
-// import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Table extends React.Component {
+  // eslint-disable-next-line max-lines-per-function
   render() {
+    const { expenses } = this.props;
+
+    // const totalExpenses = parseFloat(expenses.reduce((acc, curr) => {
+    //   const { currency, exchangeRates } = curr;
+    //   const cotation = exchangeRates[currency].ask;
+    //   const moeda = parseInt(curr.value, Number) * cotation;
+    //   return acc + moeda;
+    // }, 0)).toFixed(2);
+
     return (
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Tag</th>
             <th scope="col">Método de pagamento</th>
@@ -21,69 +31,45 @@ class Table extends React.Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+          {expenses.map((expense) => {
+            const { currency, exchangeRates } = expense;
+            return (
+              <tr key={ expense.id }>
+                <td>{expense.description}</td>
+                <td>{expense.tag}</td>
+                <td>{expense.method}</td>
+                <td>{expense.value}</td>
+                <td>{exchangeRates[currency].name }</td>
+                <td>{parseFloat(exchangeRates[currency].ask).toFixed(2) }</td>
+                <td>
+                  { parseFloat(exchangeRates[currency].ask * expense.value).toFixed(2)}
+                </td>
+                <td>Real</td>
+                <td>
+                  <button type="button" className="btn btn-outline-dark mx-2">
+                    <i className="bi bi-pencil-square"></i>
+                  </button>
+                  <button type="button" className="btn btn-danger mx-2">
+                    <i className="bi bi-trash-fill"></i>
 
+                  </button>
+                </td>
+
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
     );
   }
 }
+Table.propTypes = {
+  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
-export default Table;
+const mapStateToProps = (state) => ({
+  expenses: state.wallet.expenses,
+});
 
-// const { email, expenses } = this.props;
-//     const totalExpenses = parseFloat(expenses.reduce((acc, curr) => {
-//       const { currency, exchangeRates } = curr;
-//       const cotation = exchangeRates[currency].ask;
-//       const moeda = parseInt(curr.value, Number) * cotation;
-//       return acc + moeda;
-//     }, 0)).toFixed(2);
-//     return (
-//       <header className="navbar navbar-light bg-light">
-//         <div className="navbar-brand d-flex flex-row" href="#">
-//           <img
-//             src={ linkTrybe }
-//             className="d-inline-block align-top mx-3"
-//             alt=""
-//           />
-//           <h2>Wallet</h2>
-//         </div>
-//         <form className="form-inline d-flex flex-row mx-3">
-//           <div className=" mr-sm-2" data-testid="email-field">
-//             E-mail: &nbsp;
-//             { email }
-//           </div>
-//           <div className="  d-flex mx-3">
-//             Despesa Total: &nbsp;
-//             <h6 data-testid="total-field">
-//               {' '}
-//               R$
-//               { totalExpenses }
-//             </h6>
-//           </div>
-//           <div className=" mx-3" data-testid="header-currency-field">
-//             BRL
-//           </div>
-//         </form>
-//       </header>
-//     );
-//   }
-// }
-
-// Header.propTypes = {
-//   email: PropTypes.string.isRequired,
-//   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
-
-// const mapStateToProps = (state) => ({
-//   email: state.user.email,
-//   expenses: state.wallet.expenses,
-// });
-
-// export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(Table);

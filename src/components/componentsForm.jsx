@@ -7,14 +7,13 @@ class ComponentsForm extends React.Component {
     const { onChange } = this.props;
     return (
       < >
-        <label className={ classLabel } htmlFor="value" dataTestId onChange={ onChange }>
+        <label className={ classLabel } htmlFor="value" onChange={ onChange }>
           <h6>Valor:&nbsp;</h6>
           <input
             type="number"
             data-testid="value-input"
             className="form-control"
             id="value"
-            value="0"
           />
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>

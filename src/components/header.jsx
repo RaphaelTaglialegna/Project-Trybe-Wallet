@@ -21,6 +21,7 @@ class Header extends React.Component {
           <h2>Wallet</h2>
         </div>
         <div className="navbar-brand d-flex flex-row w-50" href="#">
+
           <Marquee>
             {
               Object.entries(currencies).map((currency) => (
@@ -40,9 +41,8 @@ class Header extends React.Component {
             { email }
           </div>
           <div className="  d-flex mx-3">
-            Despesa Total: &nbsp;
+            Despesa Total:&nbsp; R$
             <h6 data-testid="total-field">
-              R$
               { totalExpenses }
             </h6>
           </div>

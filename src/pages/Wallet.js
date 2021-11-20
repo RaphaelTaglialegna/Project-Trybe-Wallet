@@ -7,9 +7,6 @@ import { actionFetchCurrencies } from '../actions';
 import Table from '../components/Table';
 
 class Wallet extends React.Component {
-  // constructor() {
-  //   super();
-  // }
   componentDidMount() {
     const { getCurrencies } = this.props;
     getCurrencies();

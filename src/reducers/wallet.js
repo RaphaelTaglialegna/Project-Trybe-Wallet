@@ -10,6 +10,8 @@ function wallet(state = INITIAL_STATE, action) {
     return ({ ...state, currencies: action.currencies });
   case 'SAVE_EXPENSIVE':
     return ({ ...state, expenses: [...state.expenses, action.expensive] });
+  case 'DELETE_EXPENSIVE':
+    return ({ ...state, expenses: action.expensive });
   default:
     return state;
   }

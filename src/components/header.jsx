@@ -18,14 +18,14 @@ class Header extends React.Component {
       <header className="navbar navbar-light bg-light">
         <div className="navbar-brand d-flex flex-row" href="#">
           <img src={ linkTrybe } className="d-inline-block align-top mx-3" alt="" />
-          <h2>Wallet</h2>
+          <h2>Trybe Wallet</h2>
         </div>
         <div className="navbar-brand d-flex flex-row w-50" href="#">
 
           <Marquee>
             {
               Object.entries(currencies).map((currency) => (
-                <h6 key={ currency[1].code } className="text-success">
+                <h6 key={ currency[1].name } className="text-success">
                   {currency[1].code}
                   &nbsp;-&nbsp;$
                   {currency[1].ask}
@@ -35,13 +35,13 @@ class Header extends React.Component {
             }
           </Marquee>
         </div>
-        <form className="form-inline d-flex flex-row mx-3">
+        <form className="form-inline d-flex flex-row mx-3 align-items-sm-baseline">
           <div className=" mr-sm-2" data-testid="email-field">
             E-mail: &nbsp;
             { email }
           </div>
-          <div className="  d-flex mx-3">
-            Despesa Total:&nbsp; R$
+          <div className="align-items-sm-baseline  d-flex mx-3">
+            Despesa Total:&nbsp; R$&nbsp;
             <h6 data-testid="total-field">
               { totalExpenses }
             </h6>

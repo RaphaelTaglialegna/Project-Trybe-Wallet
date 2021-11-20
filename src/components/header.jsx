@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Marquee from 'react-fast-marquee';
 
 const linkTrybe = 'https://assets-global.website-files.com/61549abf6fb9ca5e91bc5709/61549abf6fb9ca4630bc5747_Logo.svg';
 
 class Header extends React.Component {
+  // eslint-disable-next-line max-lines-per-function
   render() {
-    const { email, expenses } = this.props;
+    const { email, expenses, currencies } = this.props;
     const totalExpenses = parseFloat(expenses.reduce((acc, curr) => {
       const { currency, exchangeRates } = curr;
       const cotation = exchangeRates[currency].ask;
@@ -22,6 +24,23 @@ class Header extends React.Component {
             alt=""
           />
           <h2>Wallet</h2>
+        </div>
+        <div className="navbar-brand d-flex flex-row w-50" href="#">
+
+          <Marquee>
+            {
+              Object.entries(currencies).map((currency) => (
+                <h6 key={currency[1].code } className="text-success">
+                  {currency[1].code}
+                  &nbsp;-&nbsp;$
+                  {currency[1].ask}
+                  &nbsp;,&nbsp;&nbsp;
+                </h6>
+
+              ))
+            }
+          </Marquee>
+
         </div>
         <form className="form-inline d-flex flex-row mx-3">
           <div className=" mr-sm-2" data-testid="email-field">
@@ -48,11 +67,13 @@ class Header extends React.Component {
 Header.propTypes = {
   email: PropTypes.string.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currencies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
+  currencies: state.wallet.currencies,
 });
 
 export default connect(mapStateToProps)(Header);

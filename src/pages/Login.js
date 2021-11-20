@@ -69,7 +69,6 @@ class Login extends React.Component {
                 className="form-control"
                 id="inputEmail4"
                 placeholder="Email"
-                // onChange={(e) => this.validateEmail(e)}
                 onChange={ this.handleChange }
               />
             </label>

@@ -14,6 +14,7 @@ class ComponentsForm extends React.Component {
             data-testid="value-input"
             className="form-control"
             id="value"
+            value="0"
           />
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>

@@ -21,7 +21,7 @@ class Buttons extends React.Component {
     const { id } = this.props;
     return (
       <>
-        <button type="button" className={ btnClass1 }>
+        <button type="button" className={ btnClass1 } data-testid="edit-btn">
           <i className="bi bi-pencil-square" />
         </button>
         <button

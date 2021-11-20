@@ -4,17 +4,17 @@ import React from 'react';
 class ComponentsForm extends React.Component {
   render() {
     const classLabel = 'col mx-2 d-flex align-items-center justify-content-center';
-    const { onChange, value } = this.props;
+    const { onChange } = this.props;
     return (
       < >
         <label className={ classLabel } htmlFor="value" onChange={ onChange }>
-          <h6>Valor:&nbsp;</h6>
+          <h6>Valor:&nbsp;&nbsp; </h6>
           <input
-            type="number"
             data-testid="value-input"
             className="form-control"
             id="value"
-            value={ value }
+            type="number"
+            value=""
           />
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>
@@ -54,6 +54,5 @@ class ComponentsForm extends React.Component {
 
 ComponentsForm.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
 };
 export default ComponentsForm;

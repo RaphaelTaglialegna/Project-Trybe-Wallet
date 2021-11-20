@@ -1,20 +1,10 @@
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Table extends React.Component {
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const { expenses } = this.props;
-
-    // const totalExpenses = parseFloat(expenses.reduce((acc, curr) => {
-    //   const { currency, exchangeRates } = curr;
-    //   const cotation = exchangeRates[currency].ask;
-    //   const moeda = parseInt(curr.value, Number) * cotation;
-    //   return acc + moeda;
-    // }, 0)).toFixed(2);
-
     return (
       <table className="table">
         <thead className="thead-dark">
@@ -47,14 +37,12 @@ class Table extends React.Component {
                 <td>Real</td>
                 <td>
                   <button type="button" className="btn btn-outline-dark mx-2">
-                    <i className="bi bi-pencil-square"></i>
+                    <i className="bi bi-pencil-square" />
                   </button>
                   <button type="button" className="btn btn-danger mx-2">
-                    <i className="bi bi-trash-fill"></i>
-
+                    <i className="bi bi-trash-fill" />
                   </button>
                 </td>
-
               </tr>
             );
           })}

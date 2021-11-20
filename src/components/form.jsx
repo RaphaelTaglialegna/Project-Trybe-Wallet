@@ -41,6 +41,7 @@ class Form extends React.Component {
 
   render() {
     const { currencies } = this.props;
+    const { value } = this.state;
     return (
       <nav className="navbar navbar-light bg-light px-4 align-items-center">
         <label
@@ -58,7 +59,7 @@ class Form extends React.Component {
               item[0] !== 'USDT'
                 ? (
                   <option
-                    key={ item[1].code }
+                    key={ item[1].name }
                     value={ item[1].code }
                   >
                     {item[1].code}
@@ -66,7 +67,7 @@ class Form extends React.Component {
                 : null))}
           </select>
         </label>
-        <ComponentsForm onChange={ this.handleChange } />
+        <ComponentsForm value={ value } onChange={ this.handleChange } />
         <div className="mx-2 d-flex align-items-center justify-content-center">
           <button
             type="button"

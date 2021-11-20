@@ -4,7 +4,7 @@ import React from 'react';
 class ComponentsForm extends React.Component {
   render() {
     const classLabel = 'col mx-2 d-flex align-items-center justify-content-center';
-    const { onChange } = this.props;
+    const { onChange, value } = this.props;
     return (
       < >
         <label className={ classLabel } htmlFor="value" onChange={ onChange }>
@@ -14,7 +14,7 @@ class ComponentsForm extends React.Component {
             data-testid="value-input"
             className="form-control"
             id="value"
-            value="0"
+            value={ value }
           />
         </label>
         <label className={ classLabel } htmlFor="method" onChange={ onChange }>
@@ -54,5 +54,6 @@ class ComponentsForm extends React.Component {
 
 ComponentsForm.propTypes = {
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 };
 export default ComponentsForm;

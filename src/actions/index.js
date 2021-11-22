@@ -16,6 +16,18 @@ export const actionDeleteExpensives = (expensive) => ({
   type: 'DELETE_EXPENSIVE',
   expensive,
 });
+export const actionEditExpense = (edit) => ({
+  type: 'EDIT_EXPENSIVE',
+  edit,
+});
+export const actionEditedExpense = (edit) => ({
+  type: 'EDITED_EXPENSIVE',
+  edit,
+});
+export const actionSaveEditedExpense = (expensives) => ({
+  type: 'SAVE_EDITED_EXPENSIVE',
+  expensives,
+});
 
 export const actionFetchCurrencies = () => (dispatch) => {
   fetchApi()

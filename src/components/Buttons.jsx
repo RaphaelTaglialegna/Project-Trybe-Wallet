@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { actionDeleteExpensives } from '../actions';
+import MyVerticallyCenteredModal from './Modal';
 
 class Buttons extends React.Component {
   constructor() {
@@ -16,14 +17,12 @@ class Buttons extends React.Component {
   }
 
   render() {
-    const btnClass1 = 'btn btn-outline-dark mx-2';
     const btnClass2 = 'btn btn-danger mx-2';
     const { id } = this.props;
     return (
       <>
-        <button type="button" className={ btnClass1 } data-testid="edit-btn">
-          <i className="bi bi-pencil-square" />
-        </button>
+        <MyVerticallyCenteredModal id={ id } />
+
         <button
           type="button"
           data-testid="delete-btn"

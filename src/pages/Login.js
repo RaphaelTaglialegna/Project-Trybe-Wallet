@@ -57,11 +57,11 @@ class Login extends React.Component {
     const valid = password.length >= maxLength && errorEmail === true;
     return (
       <form className="form_control">
-        <div className="form-row">
-          TrybeWallet
-          <div className="form-group col-md-6">
+        <div className="form-row rounded-3">
+          <h1 className="font d-flex justify-content-center">Trybe Wallet</h1>
+          <div className="form-group d-flex justify-content-center">
             <label htmlFor="inputEmail4">
-              Email
+              <h6 className="font">Email:</h6>
               <input
                 data-testid="email-input"
                 type="email"
@@ -74,9 +74,9 @@ class Login extends React.Component {
             </label>
             <span>{errorEmail}</span>
           </div>
-          <div className="form-group col-md-6">
+          <div className="form-group d-flex justify-content-center">
             <label htmlFor="inputPassword4">
-              Password
+              <h6 className="font">Password:</h6>
               <input
                 data-testid="password-input"
                 type="password"

@@ -48,7 +48,7 @@ $ npm install
 ```
 
 ## :memo: License
-This project is under the MIT license. See the [LICENSE](https://github.com/RaphaelTaglialegna/Project-Trybe-Wallet/LICENSE) for more information.
+This project is under the MIT license. See the [LICENSE](https://github.com/RaphaelTaglialegna/Project-Trybe-Wallet/blob/main/LICENSE) for more information.
 
 ---
 
